@@ -19,6 +19,8 @@ public class signin extends AppCompatActivity {
         signIn1=findViewById( R.id.signIn1);
         signUp1=findViewById( R.id.signUp1 );
 
+
+
     }
 
 }
