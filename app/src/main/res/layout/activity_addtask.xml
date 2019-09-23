@@ -10,53 +10,76 @@
         android:id="@+id/etTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="38dp"
+        android:layout_marginBottom="40dp"
         android:ems="10"
         android:hint="title"
         android:inputType="textPersonName"
         android:textSize="24sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="38dp" />
+        app:layout_constraintBottom_toTopOf="@+id/etSub"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/etSub"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="46dp"
         android:ems="10"
         android:hint="subject"
         android:inputType="textPersonName"
         android:textSize="24sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="131dp" />
+        app:layout_constraintBottom_toTopOf="@+id/prioty"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etTitle" />
 
     <SeekBar
         android:id="@+id/sk1"
         style="@style/Widget.AppCompat.SeekBar.Discrete"
-        android:layout_width="240dp"
+        android:layout_width="0dp"
         android:layout_height="46dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginRight="25dp"
         android:max="10"
         android:progress="3"
-        tools:layout_editor_absoluteX="119dp"
-        tools:layout_editor_absoluteY="227dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/prioty"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/prioty"
         android:layout_width="wrap_content"
-        android:layout_height="43dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="59dp"
         android:text="prioty"
         android:textSize="24sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="25dp"
-        tools:layout_editor_absoluteY="230dp" />
+        app:layout_constraintBottom_toTopOf="@+id/save2"
+        app:layout_constraintEnd_toStartOf="@+id/sk1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etSub" />
 
     <Button
         android:id="@+id/save2"
         android:layout_width="107dp"
-        android:layout_height="49dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="130dp"
         android:text="save"
         android:textSize="24sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="147dp"
-        tools:layout_editor_absoluteY="332dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/prioty" />
 </android.support.constraint.ConstraintLayout>
