@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1019184810224",
+    "firebase_url": "https://abo-klaib.firebaseio.com",
+    "project_id": "abo-klaib",
+    "storage_bucket": "abo-klaib.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1019184810224:android:a16d9297f84a15e2bada35",
+        "android_client_info": {
+          "package_name": "com.aboklaib.moaadtaskmanger"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1019184810224-r852i6bh68s6rdootc1f8aqfnjhdg4p8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.aboklaib.moaadtaskmanger",
+            "certificate_hash": "db5263a164fab7973e64232c3ca1c33ff6d3a8d3"
+          }
+        },
+        {
+          "client_id": "1019184810224-9lvlhmrvovu5e28gdvn365skm07aesoi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpx0dVL5BxiYIxU6ORMOIsDBbN7LiotmY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1019184810224-9lvlhmrvovu5e28gdvn365skm07aesoi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
