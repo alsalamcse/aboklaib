@@ -21,7 +21,8 @@
         <activity android:name=".signup" />
         <activity android:name=".alltask" />
         <activity android:name=".setting" />
-        <activity android:name=".addtask"></activity>
+        <activity android:name=".addtask" />
+        <activity android:name=".TempAllTaskActivity"></activity>
     </application>
 
 </manifest>
