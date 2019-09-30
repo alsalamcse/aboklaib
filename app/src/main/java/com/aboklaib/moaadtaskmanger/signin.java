@@ -17,6 +17,10 @@ public class signin extends AppCompatActivity {
     private EditText emsign,pssign;
     private Button signIn1,signUp1;
 
+    public signin(String email, String password) {
+
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
@@ -32,11 +36,18 @@ public class signin extends AppCompatActivity {
         signIn1.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dataHandler();
+                Intent intent=new Intent( getApplicationContext(),signup.class);
+                startActivity( intent );
             }
 
 
                 });
+        signIn1.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dataHandler();
+            }
+        } );
     }
     private void dataHandler() {
         String email=emsign.getText().toString();
@@ -52,9 +63,7 @@ public class signin extends AppCompatActivity {
                 isok=false;
             }
             if(isok)
-            {
-
-            }
+                new signin( email, password );
 
         }
     private void signIn(String email,String pass)

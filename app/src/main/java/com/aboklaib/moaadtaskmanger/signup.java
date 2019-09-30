@@ -5,7 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.google.android.gms.common.oob.SignUp;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -30,6 +32,8 @@ public class signup extends AppCompatActivity
         rewarte=findViewById( R.id.rewarte);
         save1=findViewById( R.id.save1 );
 
+
+
     }
 
     public void dattaHandler()
@@ -46,7 +50,7 @@ public class signup extends AppCompatActivity
             em2.setError( "Wrong Email" );
             isok = false;
         }
-        if (passw2.length()<8 ||  passw1.equals( passw2 )==false{
+        if (passw2.length()<8 ||  passw1.equals( passw2 )==false){
             pass2.setError( "have to at least 8 char and the same password" );
             rewarte.setError( "have to be at least 8 char and the same password" );
             isok=false;
@@ -67,19 +71,18 @@ public class signup extends AppCompatActivity
 
     private void createAcount(String email, String passw1, String fname1, String lname1, EditText phone) {
      FirebaseAuth auth = FirebaseAuth.getInstance();
-     auth.createUserWithEmailAndPassword( email,passw1 ).addOnCompleteListener( this, new OnCompleteListener<AuthResult>() {
-         @Override
-         public void onComplete(@NonNull Task<AuthResult> task) {
-             if (task.isSuccessful())
-             {
-                 finish();
-             }
-             else {
-                 em2.setError( "sign up failed" );
-             }
+        Task<AuthResult> authResultTask = auth.createUserWithEmailAndPassword( email, passw1 ).addOnCompleteListener( this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    Toast.makeText( signup.this, "sign up Successful", Toast.LENGTH_SHORT ).show();
+                    finish();
+                } else {
+                    em2.setError( "sign up failed" );
+                }
 
-             }
-     } );
+            }
+        } );
     }
 }
 
