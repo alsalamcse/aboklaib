@@ -7,7 +7,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SeekBar;
 
+import com.aboklaib.moaadtaskmanger.data.MyUser;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class addtask extends AppCompatActivity
 {
@@ -47,12 +50,25 @@ public class addtask extends AppCompatActivity
                 }
                 if (isok)
                 {
-                    createTask(Title,Subject,priority);
+                    task t=new task();
+                    t.setTitle(title);
+                    createtask(t);
                 }
             }
 
-            private void createTask(String title, String subject, int priority) {
+            private void createtask(task t)
+            {
+                //.1
+                FirebaseDatabase database=FirebaseDatabase.getInstance();
+                //.2
+                DatabaseReference reference = database.getReference();
+                String key = reference.child( "tasks" ).push().getKey();
+                reference.child( "tasks" ).child( key ).setValue(t);
+
+
             }
+
+
         } );
 
 
