@@ -1,13 +1,18 @@
 package com.aboklaib.moaadtaskmanger;
 
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SeekBar;
+import android.widget.Toast;
 
 import com.aboklaib.moaadtaskmanger.data.MyUser;
+import com.aboklaib.moaadtaskmanger.data.task;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -34,43 +39,53 @@ public class addtask extends AppCompatActivity
             }
 
             private void dataHandler() {
-                boolean isok=true;
-                String Title=etTitle.getText().toString();
-                String Subject=etSub.getText().toString();
-                int priority=sk1.getProgress();
-                if (Title.length()==0)
-                {
+                boolean isok = true;
+                String Title = etTitle.getText().toString();
+                String Subject = etSub.getText().toString();
+                int priority = sk1.getProgress();
+                if (Title.length() == 0) {
                     etTitle.setError( "Enter Title" );
-                    isok=false;
+                    isok = false;
                 }
-                if (Subject.length()==0)
-                {
+                if (Subject.length() == 0) {
                     etSub.setError( "Enter Subject" );
-                    isok=false;
+                    isok = false;
                 }
-                if (isok)
-                {
-                    task t=new task();
-                    t.setTitle(title);
-                    createtask(t);
+                if (isok) {
+                    task t = new task();
+                    t.setTitle( Title );
+                    createtask( t );
                 }
             }
+        });
 
-            private void createtask(task t)
-            {
-                //.1
-                FirebaseDatabase database=FirebaseDatabase.getInstance();
-                //.2
-                DatabaseReference reference = database.getReference();
-                String key = reference.child( "tasks" ).push().getKey();
-                reference.child( "tasks" ).child( key ).setValue(t);
+    }
+    private void createtask(task t) {
+        //.1
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        //.2
+        DatabaseReference reference = database.getReference();
+        String key = reference.child( "tasks" ).push().getKey();
+        reference.child( "tasks" ).child( key ).setValue( t ).addOnCompleteListener( addtask.this, new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
 
-//
+                    Toast.makeText( addtask.this, "Add Successful", Toast.LENGTH_SHORT ).show();
+                    finish();
+                } else {
+
+
+                    Toast.makeText( addtask.this, "Add Failed" + task.getException().getMessage(), Toast.LENGTH_SHORT ).show();
+                    task.getException().printStackTrace();
+                }
+
             }
 
 
         } );
 
-
+//
     }
+
 }

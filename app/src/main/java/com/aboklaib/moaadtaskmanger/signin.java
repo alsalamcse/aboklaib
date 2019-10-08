@@ -17,9 +17,6 @@ public class signin extends AppCompatActivity {
     private EditText emsign,pssign;
     private Button signIn1,signUp1;
 
-    public signin(String email, String password) {
-
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +60,7 @@ public class signin extends AppCompatActivity {
                 isok=false;
             }
             if(isok)
-                new signin( email, password );
+                signIn( email, password );
 
         }
     private void signIn(String email,String pass)
