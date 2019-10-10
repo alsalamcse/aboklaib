@@ -51,7 +51,7 @@ public class signin extends AppCompatActivity {
         String password=pssign.getText().toString();
         boolean isok=true;
 
-            if(isValidEmailAddress( email )) {
+            if(!isValidEmailAddress( email )) {
                 emsign.setError( "email" );
                 isok=false;
             }
@@ -77,7 +77,8 @@ public class signin extends AppCompatActivity {
                 }
                 else
                 {
-                    emsign.setError( "email or password is wrong" );
+                    emsign.setError( "email or password is wrong"+task.getException().getMessage());
+                    task.getException().printStackTrace();
                 }
                 }
             }
