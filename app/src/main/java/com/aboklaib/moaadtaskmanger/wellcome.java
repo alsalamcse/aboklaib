@@ -22,7 +22,7 @@ public class wellcome extends AppCompatActivity {
                         startActivity( i );
                         finish();
                     } else {
-                        Intent i = new Intent( getApplication(), MainActivity.class );
+                        Intent i = new Intent( getApplication(), MainAllTasksActivity.class );
                         startActivity( i );
                         finish();
                     }
