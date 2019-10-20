@@ -34,7 +34,8 @@ public class addtask extends AppCompatActivity
 
         save2.setOnClickListener( new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 dataHandler();
             }
 
@@ -65,8 +66,11 @@ public class addtask extends AppCompatActivity
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         //.2
         DatabaseReference reference = database.getReference();
+        FirebaseAuth auth=FirebaseAuth.getInstance();
+        String uid = auth.getCurrentUser().getUid();
+        t.setOnwer(uid);
         String key = reference.child( "tasks" ).push().getKey();
-        reference.child( "tasks" ).child( key ).setValue( t ).addOnCompleteListener( addtask.this, new OnCompleteListener<Void>() {
+        reference.child( "tasks" ).child(uid).child( key ).setValue( t ).addOnCompleteListener( addtask.this, new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {

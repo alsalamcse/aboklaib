@@ -6,6 +6,7 @@ public class task
     private String title;
     private String sub;
     private String prio;
+    private String onwer;
 
     public task() {
 //llllll
@@ -41,6 +42,14 @@ public class task
 
     public void setPrio(String prio) {
         this.prio = prio;
+    }
+
+    public String getOnwer(String uid) {
+        return onwer;
+    }
+
+    public void setOnwer(String onwer) {
+        this.onwer = onwer;
     }
 
     @Override

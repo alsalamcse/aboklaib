@@ -37,6 +37,8 @@ public class signup extends AppCompatActivity
     }
 
     public void dattaHandler()
+
+
     {
         boolean isok=true;//if all the fields filled well
         String email=em2.getText().toString();
