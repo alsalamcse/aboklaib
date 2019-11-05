@@ -36,7 +36,7 @@ public class task
         this.sub = sub;
     }
 
-    public String getPrio() {
+    public float getPrio() {
         return prio;
     }
 
