@@ -36,9 +36,11 @@ public class Task
         this.sub = sub;
     }
 
-    public float getPrio() {
-        return getPrio();
+    public int getPrio() {
+        return prio;
     }
+
+
 
     public void setPrio(int prio) {
         this.prio = prio;
