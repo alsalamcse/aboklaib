@@ -10,8 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.aboklaib.moaadtaskmanger.R;
+import com.aboklaib.moaadtaskmanger.data.Task;
 import com.aboklaib.moaadtaskmanger.data.TasksAdapter;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -40,9 +40,18 @@ public class AllTasksFragment extends Fragment {
         // Inflate the layout for this fragment
         View view= inflater.inflate( R.layout.fragment_all_tasks, container, false );
         listView=view.findViewById( R.id.lstvTasks );
+
+
+        listView.setAdapter( tasksAdapter );
+
         return view;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        readTasksFromFirebase();
+    }
 
     public void readTasksFromFirebase()
     {
@@ -50,15 +59,16 @@ public class AllTasksFragment extends Fragment {
         FirebaseAuth auth=FirebaseAuth.getInstance();//to get current UID
         String uid = auth.getUid();
         DatabaseReference reference = database.getReference();
-
         reference.child("tasks").child(uid).addValueEventListener( new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot)
             {
+                tasksAdapter.clear();
                 for (DataSnapshot d:dataSnapshot.getChildren())
                 {
-                    Task t=d.getValue(Task.class);
+                    Task t=d.getValue( Task.class);
                     Log.d( "Task",t.toString());
+                    tasksAdapter.add(t);
                 }
             }
 

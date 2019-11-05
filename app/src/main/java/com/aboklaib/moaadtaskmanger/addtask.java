@@ -9,10 +9,8 @@ import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.Toast;
 
-import com.aboklaib.moaadtaskmanger.data.MyUser;
-import com.aboklaib.moaadtaskmanger.data.task;
+import com.aboklaib.moaadtaskmanger.data.Task;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -53,15 +51,17 @@ public class addtask extends AppCompatActivity
                     isok = false;
                 }
                 if (isok) {
-                    task t = new task();
+                    Task t = new Task();
                     t.setTitle( Title );
+                    t.setSub( Subject );
+                    t.setPrio( priority);
                     createtask( t );
                 }
             }
         });
 
     }
-    private void createtask(task t) {
+    private void createtask(Task t) {
         //.1
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         //.2
@@ -72,7 +72,7 @@ public class addtask extends AppCompatActivity
         String key = reference.child( "tasks" ).push().getKey();
         reference.child( "tasks" ).child(uid).child( key ).setValue( t ).addOnCompleteListener( addtask.this, new OnCompleteListener<Void>() {
             @Override
-            public void onComplete(@NonNull Task<Void> task) {
+            public void onComplete(@NonNull com.google.android.gms.tasks.Task task) {
                 if (task.isSuccessful()) {
 
                     Toast.makeText( addtask.this, "Add Successful", Toast.LENGTH_SHORT ).show();

@@ -71,7 +71,7 @@ public class signin extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful())
                 {
-                    //todo go to ,main screen(all task activity)
+                    //todo go to ,main screen(all Task activity)
                     Intent i=new Intent( getApplicationContext(),TempAllTaskActivity.class );
                     startActivity( i );
                 }

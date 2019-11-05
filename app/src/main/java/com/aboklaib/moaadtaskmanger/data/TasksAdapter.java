@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import com.aboklaib.moaadtaskmanger.R;
 
-public class TasksAdapter extends ArrayAdapter<task>
+public class TasksAdapter extends ArrayAdapter<Task>
 {
     public TasksAdapter(@NonNull Context context) {
         super( context, R.layout.taskitem );
@@ -24,14 +24,14 @@ public class TasksAdapter extends ArrayAdapter<task>
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
-        View vitem= LayoutInflater.from(getContext()).inflate(R.layout.taskitem,parent,true);
+        View vitem= LayoutInflater.from(getContext()).inflate(R.layout.taskitem,parent,false);
         TextView tvTitle=vitem.findViewById(R.id.itmTvTitle);
         TextView tvSubject=vitem.findViewById(R.id.itmTvSubject);
         RatingBar rbPrio=vitem.findViewById(R.id.itmRatingPrio);
         CheckBox cbIsCompleted=vitem.findViewById(R.id.itemChbxIsCompleted);
         ImageView ivInfo=vitem.findViewById(R.id.itmImgInfo);
 
-       task myTask = getItem(position);//getting data source
+       Task myTask = getItem(position);//getting data source
 
 //connect item view to data source
         tvTitle.setText(myTask.getTitle());

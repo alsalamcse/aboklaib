@@ -1,14 +1,14 @@
 package com.aboklaib.moaadtaskmanger.data;
 
-public class task
+public class Task
 {
     private String key;
     private String title;
     private String sub;
-    private String prio;
+    private int prio;
     private String onwer;
 
-    public task() {
+    public Task() {
 //llllll
     }
 
@@ -37,10 +37,10 @@ public class task
     }
 
     public float getPrio() {
-        return prio;
+        return getPrio();
     }
 
-    public void setPrio(String prio) {
+    public void setPrio(int prio) {
         this.prio = prio;
     }
 
@@ -54,7 +54,7 @@ public class task
 
     @Override
     public String toString() {
-        return "task{" +
+        return "Task{" +
                 "key='" + key + '\'' +
                 ", title='" + title + '\'' +
                 ", sub='" + sub + '\'' +
