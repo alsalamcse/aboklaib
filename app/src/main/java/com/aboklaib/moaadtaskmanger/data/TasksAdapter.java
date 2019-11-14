@@ -33,6 +33,8 @@ public class TasksAdapter extends ArrayAdapter<Task>
 
        Task myTask = getItem(position);//getting data source
 
+        //todo טיפול באירוע מחיקה
+        cbIsCompleted.setOnCheckedChangeListener();
 //connect item view to data source
         tvTitle.setText(myTask.getTitle());
         tvSubject.setText(myTask.getSub());
