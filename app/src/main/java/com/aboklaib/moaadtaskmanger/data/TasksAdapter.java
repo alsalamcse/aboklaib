@@ -12,6 +12,7 @@ import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.aboklaib.moaadtaskmanger.R;
 import com.google.firebase.database.DatabaseError;
@@ -47,7 +48,16 @@ public class TasksAdapter extends ArrayAdapter<Task>
                      FirebaseUtils.getRefrence().child(myTask.getKey()).removeValue( new DatabaseReference.CompletionListener() {
                          @Override
                          public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
-                               if(databaseError==null)
+                               if(databaseError==null) {
+                                   Toast.makeText( getContext(), "delted", Toast.LENGTH_SHORT ).show();
+
+
+
+                                   }
+                               else {
+                                   Toast.makeText( getContext(), "not deleted"+databaseError.getMessage(), Toast.LENGTH_SHORT ).show();
+
+                               }
                          }
                      } );
                  }
