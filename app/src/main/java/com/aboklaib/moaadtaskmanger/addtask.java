@@ -70,6 +70,7 @@ public class addtask extends AppCompatActivity
         String uid = auth.getCurrentUser().getUid();
         t.setOnwer(uid);
         String key = reference.child( "tasks" ).push().getKey();
+        t.setKey(key);
         reference.child( "tasks" ).child(uid).child( key ).setValue( t ).addOnCompleteListener( addtask.this, new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull com.google.android.gms.tasks.Task task) {

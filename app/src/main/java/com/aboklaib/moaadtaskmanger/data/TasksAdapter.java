@@ -48,9 +48,10 @@ public class TasksAdapter extends ArrayAdapter<Task>
                      FirebaseUtils.getRefrence().child(myTask.getKey()).removeValue( new DatabaseReference.CompletionListener() {
                          @Override
                          public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
-                               if(databaseError==null) {
-                                   Toast.makeText( getContext(), "delted", Toast.LENGTH_SHORT ).show();
+                               if(databaseError==null)
+                               {
 
+                                   Toast.makeText( getContext(), "delted", Toast.LENGTH_SHORT ).show();
 
 
                                    }
