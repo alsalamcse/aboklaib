@@ -68,16 +68,16 @@
 
             <ImageView
                 android:id="@+id/itmImgInfo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="96dp"
+                android:layout_height="63dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="63dp"
-                android:layout_marginEnd="31dp"
-                android:layout_marginRight="31dp"
-                android:background="#F44336"
-                app:srcCompat="@android:drawable/ic_menu_info_details" />
+                android:layout_marginEnd="43dp"
+                android:layout_marginRight="43dp"
+                android:background="@color/common_google_signin_btn_text_dark_default"
+                app:srcCompat="@drawable/ic_menu_foreground" />
         </RelativeLayout>
     </android.support.v7.widget.CardView>
 </LinearLayout>

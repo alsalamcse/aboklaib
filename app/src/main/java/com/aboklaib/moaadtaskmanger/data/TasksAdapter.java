@@ -83,6 +83,11 @@ public class TasksAdapter extends ArrayAdapter<Task>
 
 
 
+
+
+
+
+
     }
 }
 
